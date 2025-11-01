@@ -64,7 +64,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Button asChild>
-                  <Link href="https://github.com/AbdulazizbekAbdusodiqov" target="_blank">
+                  <Link href="https://github.com/abudev0" target="_blank">
                     {t.hero.ctaGithub}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
