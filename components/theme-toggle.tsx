@@ -5,11 +5,13 @@ import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/components/language-provider"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const { t } = useLanguage()
 
   // Sahifa yuklangandan keyin mounted qiymatini true qilamiz
   useEffect(() => {
@@ -34,7 +36,7 @@ export function ThemeToggle() {
     <div className="relative">
       <Button variant="outline" size="icon" onClick={toggleMenu} className="rounded-full w-10 h-10">
         {theme === "dark" ? <Moon className="h-[1.2rem] w-[1.2rem]" /> : <Sun className="h-[1.2rem] w-[1.2rem]" />}
-        <span className="sr-only">Mavzuni o'zgartirish</span>
+        <span className="sr-only">{t.themeToggle.ariaLabel}</span>
       </Button>
 
       {isOpen && (
@@ -45,21 +47,21 @@ export function ThemeToggle() {
               className="w-full text-left px-4 py-2 text-sm hover:bg-zinc-800"
               role="menuitem"
             >
-              Yorug'
+              {t.themeToggle.light}
             </button>
             <button
               onClick={() => selectTheme("dark")}
               className="w-full text-left px-4 py-2 text-sm hover:bg-zinc-800"
               role="menuitem"
             >
-              Qorong'i
+              {t.themeToggle.dark}
             </button>
             <button
               onClick={() => selectTheme("system")}
               className="w-full text-left px-4 py-2 text-sm hover:bg-zinc-800"
               role="menuitem"
             >
-              Tizim
+              {t.themeToggle.system}
             </button>
           </div>
         </div>

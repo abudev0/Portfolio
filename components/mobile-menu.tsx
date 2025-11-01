@@ -6,9 +6,12 @@ import { Menu } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { useLanguage } from "@/components/language-provider"
+import { LanguageDropdown } from "@/components/language-dropdown"
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false)
+  const { t } = useLanguage()
 
   const handleLinkClick = () => {
     setOpen(false)
@@ -19,7 +22,7 @@ export function MobileMenu() {
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="md:hidden">
           <Menu className="h-6 w-6" />
-          <span className="sr-only">Menyuni ochish</span>
+          <span className="sr-only">{t.mobileMenu.openMenu}</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-[300px] sm:w-[400px]">
@@ -29,34 +32,38 @@ export function MobileMenu() {
             className="text-lg font-medium hover:text-primary transition-colors"
             onClick={handleLinkClick}
           >
-            Haqimda
+            {t.nav.about}
           </Link>
           <Link
             href="#skills"
             className="text-lg font-medium hover:text-primary transition-colors"
             onClick={handleLinkClick}
           >
-            Ko'nikmalar
+            {t.nav.skills}
           </Link>
           <Link
             href="#projects"
             className="text-lg font-medium hover:text-primary transition-colors"
             onClick={handleLinkClick}
           >
-            Loyihalar
+            {t.nav.projects}
           </Link>
           <Link
             href="#contact"
             className="text-lg font-medium hover:text-primary transition-colors"
             onClick={handleLinkClick}
           >
-            Aloqa
+            {t.nav.contact}
           </Link>
           <Button asChild className="mt-4">
             <Link href="#contact" onClick={handleLinkClick}>
-              Bog'lanish
+              {t.nav.contactCta}
             </Link>
           </Button>
+          <div className="pt-2 border-t">
+            <p className="text-sm text-muted-foreground mb-2">{t.header.languageLabel}</p>
+            <LanguageDropdown triggerClassName="w-full" align="start" />
+          </div>
         </div>
       </SheetContent>
     </Sheet>

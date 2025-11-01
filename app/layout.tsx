@@ -4,6 +4,7 @@ import "@/app/globals.css"
 import { Inter } from "next/font/google"
 
 import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/components/language-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -36,7 +37,7 @@ export const metadata = {
     "Next.js Developer",
     "Node.js Developer",
   ],
-  authors: [{ name: "Abdulazizbek Abdusodiqov", url: "https://github.com/AbdulazizbekAbdusodiqov" }],
+  authors: [{ name: "Abdulazizbek Abdusodiqov", url: "https://github.com/abudev0" }],
   creator: "Abdulazizbek Abdusodiqov",
   openGraph: {
     type: "website",
@@ -79,7 +80,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

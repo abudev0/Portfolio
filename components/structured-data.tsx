@@ -46,7 +46,7 @@ export function StructuredData() {
     ],
     url: "https://abdulazizdev.uz",
     sameAs: [
-      "https://github.com/AbdulazizbekAbdusodiqov",
+      "https://github.com/abudev0",
       "https://t.me/dev_abu"
     ],
     knowsAbout: [
